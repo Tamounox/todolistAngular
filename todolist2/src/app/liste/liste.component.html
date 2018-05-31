@@ -1,0 +1,16 @@
+<div class="kun">
+  <div class="titre">
+    <h1 class="animated bounce">TO DO LIST </h1>
+  </div>
+  <app-add-task (newTask)="addTask($event)"></app-add-task>
+  <ul class="list-group chan">
+    <div *ngFor="let obj of taskList; let i=index"> 
+      <li class="list-group-item animated lightSpeedIn hoverable view overlay rgba-cyan-light ">
+        <p [hidden]="!chan">{{ obj }} </p><input class="overlay rgba-cyan-light " #updateTaskChan [hidden]="chan"> 
+        <a (click)="deleteTask(i)"><i class="fa fa-check-circle" aria-hidden="true"></i></a>
+        <a (click)="isUpdate(chan, i)"><i class="fa fa-edit" aria-hidden="true"></i></a>
+        <button type="button" class="btn btn-success waves-light" [hidden]="chan" mdbWavesEffect>Valider</button>
+      </li>
+    </div>
+  </ul>
+</div>
